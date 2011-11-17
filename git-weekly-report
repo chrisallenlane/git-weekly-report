@@ -1,0 +1,59 @@
+#!/usr/bin/ruby
+##
+# This script assembles weekly log files on per-project basis.
+##
+
+# Configs
+log_save_path = '/home/username/Desktop'   # Save the logs where? (Without a trailing slash)
+author        = 'Your Name'                # Your git username.
+
+# This is a hash of your working projects
+projects = [
+    # example1.com
+    {
+        :project_name   => 'example1.com',
+        :repository     => '/path/to/repository',
+    },
+    # example2.com
+    {
+        :project_name   => 'example2.com',
+        :repository     => '/path/to/repository',
+    },
+]
+
+
+
+
+# -------------------- Do not edit beneath this line --------------------
+# notify the user
+puts 'Assembling logs...'
+
+# determine the target date
+if ARGV[0].nil?
+    require 'date'
+    # if no date was specified, locate the most recent Monday
+    today       = Date.today
+    modifier    = (today.wday == 0) ? 6 : today.wday - 1
+    monday      = today - modifier
+    target_date = monday.strftime("%b %d %Y");
+
+# otherwise, use the date specified
+else
+    target_date = ARGV[0]
+end
+
+# for each project, dump the git log
+projects.each do |project|
+    # store the git log data
+    logdata = `cd #{project[:repository]}; git log --author='#{author}' --since="#{target_date}"`
+    # if the log data isn't blank (ie, if work was done), save the file
+    unless logdata == ''
+        logfile = "#{log_save_path}/#{project[:project_name]}.log.txt"
+        log     = File.new(logfile, 'w')
+        log.write(logdata)
+        log.close 
+    end
+end
+
+# notify the user and quit
+puts "Logs have been written to #{log_save_path}"

@@ -1,10 +1,8 @@
 git-weekly-report
 =================
-Version 1.0
-
-Chris Lane, 17 November 2011
-chris@chris-allen-lane.com
-http://chris-allen-lane.com
+Chris Lane, 17 November 2011  
+chris@chris-allen-lane.com  
+http://chris-allen-lane.com  
 
 
 
@@ -15,8 +13,8 @@ git-weekly-report is a simple Ruby script used to generate weekly reports
 of your recent development activities on a per-project basis by aggregating
 information out of the git logs.
 
-It is very minimalist script based off of the YAGNI (You Ain't Gonna Need
-It) philosophy, and thus has no dependencies, and has uncomplicated source.
+It is very minimalist script based off of the _YAGNI_ ("You Ain't Gonna Need
+It") philosophy, and thus has no dependencies, and has uncomplicated source.
 
 It has only been tested on Ubuntu 11.04, and may not work on other platforms.
 
@@ -47,23 +45,28 @@ external configuration files.
 
 There are only a few points of configuration for this script:
 
-* log_save_path - The location to which you'd like to save the log files.
-* author - Your name, according to git (as in: git config --global user.name)
-* projects - This is a hash of the projects you want to have monitored.
-For each project, you will need to specify a project name (which will be
-used for naming the resultant log files) and the path to the repository.
+* log_save_path -    
+The location to which you'd like to save the log files.
+
+* author -   
+Your name, according to git (as in: git config --global user.name)
+
+* projects -   
+This is a hash of the projects you want to have monitored. For each
+project, you will need to specify a project name (which will be used for
+naming the resultant log files) and the path to the repository.
 
 
 Use
 ---
 Frequently, you'll likely just invoke the script with no parameters, as in:
 
-./git-weekly-report
+    ./git-weekly-report
 
 Optionally, you may invoke the script with one parameter: the date back to which
 you'd like to query, as in:
 
-./git-weekly-report "1 Nov 2011"
+    ./git-weekly-report "1 Nov 2011"
 
 That parameter is useful if you want to query farther back than simply one
 week.

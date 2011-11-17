@@ -1,6 +1,7 @@
 git-weekly-report
 =================
-Chris Lane, 17 November 2011  
+Chris Lane  
+17 November 2011  
 chris@chris-allen-lane.com  
 http://chris-allen-lane.com  
 
@@ -33,7 +34,7 @@ week at the end of the week, and should query back to the most recent
 Monday. Thus, "git-weekly-report".
 
 This script evolved (unsurprisingly) from my own needs. Every Friday
-I send my employee a summary of my git commit logs on a per-project basis.
+I send my employer a summary of my git commit logs on a per-project basis.
 Assembling this information manually quickly became tedious though, and 
 hence this script was born.
 
@@ -49,7 +50,7 @@ There are only a few points of configuration for this script:
 The location to which you'd like to save the log files.
 
 * `author` -   
-Your name, according to git (as in: git config --global user.name)
+Your name, according to git (as in: `git config --global user.name`)
 
 * `projects` -   
 This is a hash of the projects you want to have monitored. For each
@@ -75,7 +76,7 @@ week.
 Contacting Me
 -------------
 If you have questions, concerns, bug reports, feature requests, offers
-for discount viagra, whatever, feel free to contact me at chris@chris-allen-lane.com
+for discount viagra, whatever, feel free to contact me at chris@chris-allen-lane.com.
 
 
 License

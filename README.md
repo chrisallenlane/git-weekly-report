@@ -73,7 +73,7 @@ That parameter is useful if you want to query farther back than simply one
 week.
 
 
-Contacting Me
+Contact Me
 -------------
 If you have questions, concerns, bug reports, feature requests, offers
 for discount viagra, whatever, feel free to contact me at chris@chris-allen-lane.com.

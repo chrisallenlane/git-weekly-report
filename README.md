@@ -9,7 +9,7 @@ http://chris-allen-lane.com
 
 About
 -----
-git-weekly-report is a simple Ruby script used to generate weekly reports
+`git-weekly-report` is a simple Ruby script used to generate weekly reports
 of your recent development activities on a per-project basis by aggregating
 information out of the git logs.
 
@@ -45,13 +45,13 @@ external configuration files.
 
 There are only a few points of configuration for this script:
 
-* log_save_path -    
+* `log_save_path` -    
 The location to which you'd like to save the log files.
 
-* author -   
+* `author` -   
 Your name, according to git (as in: git config --global user.name)
 
-* projects -   
+* `projects` -   
 This is a hash of the projects you want to have monitored. For each
 project, you will need to specify a project name (which will be used for
 naming the resultant log files) and the path to the repository.

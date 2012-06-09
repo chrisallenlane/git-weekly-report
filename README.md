@@ -7,14 +7,9 @@ http://chris-allen-lane.com
 
 About
 -----
-`git-weekly-report` is a simple Ruby script used to generate weekly reports
+`git-weekly-report` is a simple Ruby program used to generate weekly reports
 of your recent development activities on a per-project basis by aggregating
 information out of the git logs.
-
-It is very minimalist script based off of the _YAGNI_ ("You Ain't Gonna Need
-It") philosophy, and thus has no dependencies, and has uncomplicated source.
-
-It has only been tested on Ubuntu 11.04, and may not work on other platforms.
 
 
 What it Does

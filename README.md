@@ -55,8 +55,8 @@ be queried. If `--since` is omitted, the nearest Monday is assumed.
 
 FAQ
 ---
-### Why is the project hash stored in its own file? Why not store 
-that hash in the `git-weekly-report` file itself? ###
+**Why is the project hash stored in its own file? Why not store that 
+hash in the `git-weekly-report` file itself?**
 
 I felt like it would be cleaner to store the "program" in a location 
 separate from its "data". Also, storing the data separately allows 

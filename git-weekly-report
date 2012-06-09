@@ -21,7 +21,7 @@ banner_text =<<ban
 Examples:
 git-weekly-report -g 'John Smith' -l '~/Desktop' -p ./projects.rb
 git-weekly-report -g 'John Smith' -l '~/Desktop' -p ./projects.rb -s 'monday'
-git-weekly-report -g 'John Smith' -l '~/Desktop' -p ./projects.rb -s '8 Jun'
+git-weekly-report -g 'John Smith' -l '~/Desktop' -p ./projects.rb -s '8 Jun 2012'
 ban
 
 opts = Trollop::options do
@@ -29,7 +29,7 @@ opts = Trollop::options do
 	
 	version 'Version: 2.0.0'
 
-	opt :git_user_name,  'Your git username (as per: git config --global user.name)',
+	opt :git_user_name,  'Your git username (as per `git config --global user.name`)',
 			:type 		=> :string,
 			:required	=> true
 

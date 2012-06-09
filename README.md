@@ -1,5 +1,5 @@
 git-weekly-report (2.0.0)
-=================
+=========================
 Chris Lane  
 chris@chris-allen-lane.com  
 http://chris-allen-lane.com  
@@ -45,10 +45,8 @@ There are only a few points of configuration for this script:
 
 * `log_save_path` -    
 The location to which you'd like to save the log files.
-
 * `author` -   
 Your name, according to git (as in: `git config --global user.name`)
-
 * `projects` -   
 This is a hash of the projects you want to have monitored. For each
 project, you will need to specify a project name (which will be used for
@@ -59,12 +57,16 @@ Use
 ---
 Frequently, you'll likely just invoke the script with no parameters, as in:
 
-    ./git-weekly-report
+```bash
+./git-weekly-report
+```
 
 Optionally, you may invoke the script with one parameter: the date back to which
 you'd like to query, as in:
 
-    ./git-weekly-report "1 Nov 2011"
+```bash
+./git-weekly-report "1 Nov 2011"
+```
 
 That parameter is useful if you want to query farther back than simply one
 week.

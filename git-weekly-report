@@ -16,10 +16,12 @@ require 'trollop'
 # Menu options and program flow
 #######################################################################
 banner_text =<<ban
-`git-weekly-report` generates commit reports on a per-project and per-user 
-basis.
+`git-weekly-report` generates commit reports on a per-project and per-user basis.
 
-Example: git-weekly-report -n 'John Smith' -l '~/Desktop' -p ./projects.rb -s 'monday'
+Examples:
+git-weekly-report -g 'John Smith' -l '~/Desktop' -p ./projects.rb
+git-weekly-report -g 'John Smith' -l '~/Desktop' -p ./projects.rb -s 'monday'
+git-weekly-report -g 'John Smith' -l '~/Desktop' -p ./projects.rb -s '8 Jun'
 ban
 
 opts = Trollop::options do
@@ -29,25 +31,22 @@ opts = Trollop::options do
 
 	opt :git_user_name,  'Your git username (as per: git config --global user.name)',
 			:type 		=> :string,
-			:required	=> true,
-			:short	    => 'n'
+			:required	=> true
 
 	opt :log_path,		'Directory wherein the log files should be written',
 			:type 		=> :string,
-			:required	=> true,
-            :short	    => 'l'
+			:required	=> true
 
 	opt :project_file,	'The file containing a hash of projects',
 			:type 		=> :string,
-			:required   => true,
-            :short 		=> 'p'
+			:required   => true
 
 	opt :since,	        'The date from which to parse the logs',
-			:type 		=> :string,
-			:short 		=> 's'
+			:type 		=> :string
+
 end
 # Verify that the project file was specified
-Trollop::die :project_file, "must exist" unless File.exist?(opts[:project_file])
+Trollop::die :project_file, 'must exist' unless File.exist?(opts[:project_file])
 require opts[:project_file]
 
 ### Notify the User ###
@@ -59,7 +58,7 @@ if (!opts[:since_given]) || (opts[:since].eql? 'monday')
     today       = Date.today
     modifier    = (today.wday == 0) ? 6 : today.wday - 1
     monday      = today - modifier
-    target_date = monday.strftime("%b %d %Y");    
+    target_date = monday.strftime('%b %d %Y');    
 else
     # otherwise, use the specified date
     target_date = opts[:since]

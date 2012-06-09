@@ -49,8 +49,11 @@ end
 Trollop::die :project_file, 'must exist' unless File.exist?(opts[:project_file])
 require opts[:project_file]
 
-### Notify the User ###
-puts 'Assembling logs...'
+
+#######################################################################
+# Report generation
+#######################################################################
+puts "Assembling logs..."
 
 ### Determine the correct date to use ###
 if (!opts[:since_given]) || (opts[:since].eql? 'monday')

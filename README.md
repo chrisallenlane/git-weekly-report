@@ -32,8 +32,8 @@ Configuration
 -------------
 Configuration is simple: you just need to tell `git-weekly-report` 
 where your git repositories are located. You also need to specify a 
-human-readable name for each. This information is specified in a 
-hash in `projects.rb`.
+human-readable name for each. This information is specified within 
+a hash in `projects.rb`.
 
 
 Usage
@@ -41,9 +41,9 @@ Usage
 Usage will look like one of the following examples:
 
 ```bash
-git-weekly-report -g 'John Smith' -l '~/Desktop/' -p ./projects.rb
-git-weekly-report -g 'John Smith' -l '~/Desktop/' -p ./projects.rb -s 'monday'
-git-weekly-report -g 'John Smith' -l '~/Desktop/' -p ./projects.rb -s '09 Jun 2012'
+git-weekly-report -g 'John Smith' -l ~/Desktop/ -p ./projects.rb
+git-weekly-report -g 'John Smith' -l ~/Desktop/ -p ./projects.rb -s 'monday'
+git-weekly-report -g 'John Smith' -l ~/Desktop/ -p ./projects.rb -s '09 Jun 2012'
 ```
 
 Wherein:

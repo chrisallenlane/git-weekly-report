@@ -3,68 +3,67 @@ git-weekly-report (2.0.0)
 Chris Lane  
 chris@chris-allen-lane.com  
 http://chris-allen-lane.com  
+http://twitter.com/#!/chrisallenlane
 
 
 About
 -----
-`git-weekly-report` is a simple Ruby program used to generate weekly reports
-of your recent development activities on a per-project basis by aggregating
-information out of the git logs.
+`git-weekly-report` generates development reports based off of git 
+commit logs on a per-project and per-user basis.
+
+This script evolved from my own needs. Every Friday I send my 
+clients a summary of my git commits on a per-project basis. 
+Assembling such information manually is tedious, though, and thus I 
+wrote this script.
 
 
 What it Does
 ------------
-This script iterates over all of the git repositories you specify to it, 
-and queries your commit messages out of the logs. For each repository
-that has been worked on during the week, your commit messages are saved
-to a specified directory on a per-project basis.
+`git-weekly-report` iterates over a hash of specified git repositories, 
+and queries your commit messages out of the logs for each. 
 
-If run without a date, this script determines the date of the most recent
-Monday, and only queries the git logs back to that date. The general
-usage scenario for this script assumes that it's likely to be run once per
-week at the end of the week, and should query back to the most recent
-Monday. Thus, "git-weekly-report".
-
-This script evolved (unsurprisingly) from my own needs. Every Friday
-I send my employer a summary of my git commit logs on a per-project basis.
-Assembling this information manually quickly became tedious though, and 
-hence this script was born.
+If run without a date, this script queries the logs back to the most 
+recent Monday. A typical use-case for this script would be to be 
+run once per week at the end of the week. Thus, "git-weekly-report".
 
 
 Configuration
 -------------
-The script is configured by editing it directly; it does not rely on any
-external configuration files.
-
-There are only a few points of configuration for this script:
-
-* `log_save_path` -    
-The location to which you'd like to save the log files.
-* `author` -   
-Your name, according to git (as in: `git config --global user.name`)
-* `projects` -   
-This is a hash of the projects you want to have monitored. For each
-project, you will need to specify a project name (which will be used for
-naming the resultant log files) and the path to the repository.
+Configuration is simple: you just need to tell `git-weekly-report` 
+where your git repositories are located. You also need to specify a 
+human-readable name for each. This information is specified in a 
+hash in `projects.rb`.
 
 
-Use
+Usage
+-----
+Usage will look like one of the following examples:
+
+```bash
+git-weekly-report -g 'John Smith' -l '~/Desktop/' -p ./projects.rb
+git-weekly-report -g 'John Smith' -l '~/Desktop/' -p ./projects.rb -s 'monday'
+git-weekly-report -g 'John Smith' -l '~/Desktop/' -p ./projects.rb -s '09 Jun 2012'
+```
+
+Wherein:
+- `-g` (`--git-user-name`) specifies your git user name (as per `git config --global user.name`)
+- `-l` (`--log-path`) specifies the directory in which to write the reports
+- `-p` (`--project-file`) specifies the location of the project file
+- `-s` (`--since`) optionally specifies a date back to which the logs should
+be queried. If `--since` is omitted, the nearest Monday is assumed.
+
+
+FAQ
 ---
-Frequently, you'll likely just invoke the script with no parameters, as in:
+### Why is the project hash stored in its own file? Why not store 
+that hash in the `git-weekly-report` file itself? ###
 
-```bash
-./git-weekly-report
-```
-
-Optionally, you may invoke the script with one parameter: the date back to which
-you'd like to query, as in:
-
-```bash
-./git-weekly-report "1 Nov 2011"
-```
-
-That parameter is useful if you want to query farther back than simply one
-week.
+I felt like it would be cleaner to store the "program" in a location 
+separate from its "data". Also, storing the data separately allows 
+you to group projects within different files. This can be useful if 
+you're managing a huge number of projects. For example, you may 
+want to group each of your clients' projects into individual files, 
+and then specify the appropriate project file at runtime.
 
 
 License

@@ -1,11 +1,8 @@
-git-weekly-report
+git-weekly-report (2.0.0)
 =================
 Chris Lane  
-17 November 2011  
 chris@chris-allen-lane.com  
 http://chris-allen-lane.com  
-
-
 
 
 About
@@ -71,12 +68,6 @@ you'd like to query, as in:
 
 That parameter is useful if you want to query farther back than simply one
 week.
-
-
-Contact Me
--------------
-If you have questions, concerns, bug reports, feature requests, offers
-for discount viagra, whatever, feel free to contact me at chris@chris-allen-lane.com.
 
 
 License

@@ -20,9 +20,9 @@ banner_text =<<ban
 `git-weekly-report` generates commit reports on a per-project and per-user basis.
 
 Examples:
-git-weekly-report -g 'John Smith' -l '~/Desktop/' -p ./projects.rb
-git-weekly-report -g 'John Smith' -l '~/Desktop/' -p ./projects.rb -s 'monday'
-git-weekly-report -g 'John Smith' -l '~/Desktop/' -p ./projects.rb -s '#{today}'
+git-weekly-report -g 'John Smith' -l ~/Desktop/ -p ./projects.rb
+git-weekly-report -g 'John Smith' -l ~/Desktop/ -p ./projects.rb -s 'monday'
+git-weekly-report -g 'John Smith' -l ~/Desktop/ -p ./projects.rb -s '#{today}'
 ban
 
 opts = Trollop::options do

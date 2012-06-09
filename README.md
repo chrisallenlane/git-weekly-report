@@ -22,9 +22,10 @@ What it Does
 `git-weekly-report` iterates over a hash of specified git repositories, 
 and queries your commit messages out of the logs for each. 
 
-If run without a date, this script queries the logs back to the most 
-recent Monday. A typical use-case for this script would be to be 
-run once per week at the end of the week. Thus, "git-weekly-report".
+If run without specifying a date, this script queries the logs back 
+to the most recent Monday. A typical use-case for this script would 
+be to be run once per week at the end of the week. Thus, 
+"git-weekly-report".
 
 
 Configuration
